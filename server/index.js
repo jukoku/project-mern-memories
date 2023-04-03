@@ -1,4 +1,6 @@
 
+import * as dotenv from 'dotenv'
+dotenv.config()
 import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
@@ -16,8 +18,16 @@ app.use(cors());
 app.use('/posts', postRoutes);
 app.use("/user", userRouter);
 
-const CONNECTION_URL = 'mongodb+srv://js_mastery:M6WfDnJEoj9HkV2d@practice.jto9p.mongodb.net/memories_app?retryWrites=true&w=majority';
-const PORT = process.env.PORT|| 5000;
+
+const DB_USERNAME = process.env.DB_USERNAME || "js_mastery";
+const DB_PASSWORD = process.env.DB_PASSWORD || "M6WfDnJEoj9HkV2d";
+const DB_IP_ADDR = process.env.DB_IP_ADDR || "practice.jto9p.mongodb.net";
+const DB_COLLECTION = process.env.DB_COLLECTION || "memories_app";
+
+const CONNECTION_URL = `mongodb+srv://${DB_USERNAME}:${DB_PASSWORD}@${DB_IP_ADDR}/${DB_COLLECTION}?retryWrites=true&w=majority`;
+const PORT = process.env.PORT || 5000;
+
+console.log(CONNECTION_URL);
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => app.listen(PORT, () => console.log(`Server Running on Port: http://localhost:${PORT}`)))

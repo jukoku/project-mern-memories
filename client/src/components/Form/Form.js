@@ -38,11 +38,12 @@ const Form = ({ currentId, setCurrentId }) => {
     }
   };
 
+
   if (!user?.result?.name) {
     return (
       <Paper className={classes.paper} elevation={6}>
         <Typography variant="h6" align="center">
-          Please Sign In to create your own memories and like other's memories.
+          로그인 후에 추억을 사진과 글로 남기거나 다른 사람들의 추억에 좋아요를 눌러 보세요.
         </Typography>
       </Paper>
     );
@@ -59,14 +60,14 @@ const Form = ({ currentId, setCurrentId }) => {
   return (
     <Paper className={classes.paper} elevation={6}>
       <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
-        <Typography variant="h6">{currentId ? `Editing "${post?.title}"` : 'Creating a Memory'}</Typography>
-        <TextField name="title" variant="outlined" label="Title" fullWidth value={postData.title} onChange={(e) => setPostData({ ...postData, title: e.target.value })} />
-        <TextField name="message" variant="outlined" label="Message" fullWidth multiline rows={4} value={postData.message} onChange={(e) => setPostData({ ...postData, message: e.target.value })} />
+        <Typography variant="h6">{currentId ? `Editing "${post?.title}"` : '추억 만들기'}</Typography>
+        <TextField name="title" variant="outlined" label="제목" fullWidth value={postData.title} onChange={(e) => setPostData({ ...postData, title: e.target.value })} />
+        <TextField name="message" variant="outlined" label="메시지" fullWidth multiline rows={4} value={postData.message} onChange={(e) => setPostData({ ...postData, message: e.target.value })} />
         <div style={{ padding: '5px 0', width: '94%' }}>
           <ChipInput
             name="tags"
             variant="outlined"
-            label="Tags"
+            label="태그"
             fullWidth
             value={postData.tags}
             onAdd={(chip) => handleAddChip(chip)}
@@ -74,8 +75,8 @@ const Form = ({ currentId, setCurrentId }) => {
           />
         </div>
         <div className={classes.fileInput}><FileBase type="file" multiple={false} onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })} /></div>
-        <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
-        <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
+        <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>등록</Button>
+        <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>지우기</Button>
       </form>
     </Paper>
   );

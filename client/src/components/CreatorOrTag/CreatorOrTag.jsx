@@ -21,7 +21,7 @@ const CreatorOrTag = () => {
     }
   }, []);
 
-  if (!posts.length && !isLoading) return 'No posts';
+  if (!posts.length && !isLoading) return '아직 작성된 글이 없습니다.';
 
   return (
     <div>

@@ -9,7 +9,7 @@ const Posts = ({ setCurrentId }) => {
   const { posts, isLoading } = useSelector((state) => state.posts);
   const classes = useStyles();
 
-  if (!posts.length && !isLoading) return 'No posts';
+  if (!posts.length && !isLoading) return '아직 작성된 글이 없습니다.';
 
   return (
     isLoading ? <CircularProgress /> : (

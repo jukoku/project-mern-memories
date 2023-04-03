@@ -5,6 +5,7 @@ export default makeStyles((theme) => ({
   appBar: {
     borderRadius: 15,
     margin: '30px 0',
+    fontFamily: 'Jua',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -16,6 +17,7 @@ export default makeStyles((theme) => ({
   },
   heading: {
     color: theme.palette.primary.main,
+    fontFamily: 'Jua',
     textDecoration: 'none',
     fontSize: '2em',
     fontWeight: 300,
@@ -26,6 +28,7 @@ export default makeStyles((theme) => ({
   },
   toolbar: {
     display: 'flex',
+    fontFamily: 'Jua',
     justifyContent: 'flex-end',
     width: '400px',
     [theme.breakpoints.down('sm')]: {
@@ -35,6 +38,7 @@ export default makeStyles((theme) => ({
   profile: {
     display: 'flex',
     justifyContent: 'space-between',
+    fontFamily: 'Jua',
     width: '400px',
     alignItems: 'center',
     [theme.breakpoints.down('sm')]: {
@@ -47,11 +51,13 @@ export default makeStyles((theme) => ({
     marginLeft: '20px',
   },
   userName: {
+    fontFamily: 'Jua',
     display: 'flex',
     alignItems: 'center',
     textAlign: 'center',
   },
   brandContainer: {
+    fontFamily: 'Jua',
     display: 'flex',
     alignItems: 'center',
   },
